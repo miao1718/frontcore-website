@@ -1,0 +1,153 @@
+/**
+ * Hero 区域
+ * Figma: 大背景 (151:315) 高度 720px + Frame 10 (151:440) 文案区
+ */
+
+.hero {
+  position: relative;
+  min-height: 720px;
+  margin-top: calc(-1 * var(--header-height));
+  padding-top: var(--header-height);
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+.hero__bg-slides {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 720px;
+  background-color: #e8eaed;
+}
+
+.hero__bg-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 720px;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  will-change: opacity;
+  animation: hero-bg-fade 27s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 全程交叉淡入淡出，任意时刻至少一张图可见 */
+.hero__bg-slide:nth-child(1) {
+  animation-delay: -4.5s;
+}
+
+.hero__bg-slide:nth-child(2) {
+  animation-delay: -13.5s;
+}
+
+.hero__bg-slide:nth-child(3) {
+  animation-delay: -22.5s;
+}
+
+@keyframes hero-bg-fade {
+  0% {
+    opacity: 0;
+  }
+  16.67% {
+    opacity: 1;
+  }
+  33.33% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero__overlay {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 720px;
+  background: var(--gradient-hero-overlay);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+  padding-block: 80px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 840px;
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(40px, 8vw, 76px);
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.hero__subtitle {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(20px, 3.5vw, 38px);
+  line-height: 1.4;
+  color: var(--color-text-primary);
+}
+
+/* CTA 按钮 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  min-height: 46px;
+  min-width: 44px;
+  padding: 14px var(--space-md);
+  font-family: var(--font-button);
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  align-self: flex-start;
+}
+
+.btn--primary:hover {
+  background-color: #0046cc;
+}
+
+.btn--primary:active {
+  transform: scale(0.98);
+}
+
+.btn__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
