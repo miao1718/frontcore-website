@@ -1,11 +1,11 @@
 /**
  * Hero 区域
- * Figma: 大背景 (151:315) 高度 720px + Frame 10 (151:440) 文案区
+ * Figma: 大背景 (151:315) 高度 780px + Frame 10 (151:440) 文案区
  */
 
 .hero {
   position: relative;
-  min-height: 720px;
+  min-height: 780px;
   /* 顶栏 fixed 不占文档流：padding 把文案推到顶栏下方，背景仍铺满含顶栏区域 */
   padding-top: var(--header-height);
   display: flex;
