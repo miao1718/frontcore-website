@@ -6,10 +6,10 @@
 .hero {
   position: relative;
   min-height: 720px;
-  margin-top: calc(-1 * var(--header-height));
+  /* 顶栏 fixed 不占文档流：padding 把文案推到顶栏下方，背景仍铺满含顶栏区域 */
   padding-top: var(--header-height);
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
 }
 
 .hero__bg {
@@ -92,12 +92,15 @@
   z-index: 1;
   width: 100%;
   max-width: var(--container-max);
+  /* 有空间时沉底；空间不足时 auto 坍缩为 0，文案留在顶栏 padding 之下，避免上溢进 header */
+  margin-top: auto;
   margin-inline: auto;
   padding-inline: var(--space-lg);
   padding-block: 80px 120px;
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
+  flex-shrink: 0;
 }
 
 .hero__text {
