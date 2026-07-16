@@ -23,15 +23,23 @@
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 720px;
-  background-color: #e8eaed;
+  height: 100%;
+  background-color: transparent;
+}
+
+.hero__bg-slide-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .hero__bg-slide {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 720px;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   opacity: 0;
@@ -39,16 +47,17 @@
   animation: hero-bg-fade 27s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* 全程交叉淡入淡出，任意时刻至少一张图可见 */
-.hero__bg-slide:nth-child(1) {
+/* 首帧立即可见，避免加载期间露出灰底；全程交叉淡入淡出 */
+.hero__bg-slide-wrap:nth-child(1) .hero__bg-slide {
+  opacity: 1;
   animation-delay: -4.5s;
 }
 
-.hero__bg-slide:nth-child(2) {
+.hero__bg-slide-wrap:nth-child(2) .hero__bg-slide {
   animation-delay: -13.5s;
 }
 
-.hero__bg-slide:nth-child(3) {
+.hero__bg-slide-wrap:nth-child(3) .hero__bg-slide {
   animation-delay: -22.5s;
 }
 
@@ -72,10 +81,9 @@
 
 .hero__overlay {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   width: 100%;
-  height: 720px;
+  height: 100%;
   background: var(--gradient-hero-overlay);
 }
 

@@ -194,12 +194,30 @@
   }
 
   .hero {
-    min-height: 520px;
+    min-height: 460px;
+    align-items: flex-end;
+  }
+
+  /* S-king 为 440×260 横构图，右对齐保留右侧芯片主体 */
+  .hero__bg-slide {
+    object-position: right center;
   }
 
   .hero__content {
-    padding-block: 48px 64px;
+    padding-block: 32px 56px;
     padding-inline: var(--space-md);
+  }
+
+  .hero .btn {
+    min-height: 40px;
+    padding: 10px 14px;
+    font-size: 14px;
+    gap: 6px;
+  }
+
+  .hero .btn__icon {
+    width: 16px;
+    height: 16px;
   }
 
   .products__grid {
@@ -245,16 +263,32 @@
   }
 
   .hero {
-    min-height: 460px;
+    min-height: 300px;
+    align-items: flex-end;
+  }
+
+  .hero__bg-slide {
+    object-position: 78% 42%;
   }
 
   .hero__content {
-    padding-block: 32px 48px;
+    padding-block: 24px 40px;
     gap: var(--space-md);
   }
 
   .hero__text {
     gap: var(--space-sm);
+  }
+
+  .hero .btn {
+    min-height: 38px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .hero .btn__icon {
+    width: 14px;
+    height: 14px;
   }
 
   .mission__banner {
@@ -335,7 +369,7 @@
     opacity: 0 !important;
   }
 
-  .hero__bg-slide:first-child {
+  .hero__bg-slide-wrap:first-child .hero__bg-slide {
     opacity: 1 !important;
   }
 }

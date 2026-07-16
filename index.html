@@ -40,9 +40,18 @@
     <section class="hero" id="home" aria-label="首页横幅">
       <div class="hero__bg">
         <div class="hero__bg-slides" aria-hidden="true">
-          <img src="assets/king-banner-slide-01.svg" alt="" class="hero__bg-slide" decoding="async">
-          <img src="assets/king-banner-slide-02.svg" alt="" class="hero__bg-slide" decoding="async">
-          <img src="assets/king-banner-slide-03.svg" alt="" class="hero__bg-slide" decoding="async">
+          <picture class="hero__bg-slide-wrap">
+            <source media="(max-width: 767px)" srcset="assets/S-king-banner-slide-01.svg">
+            <img src="assets/king-banner-slide-01.svg" alt="" class="hero__bg-slide" fetchpriority="high" decoding="async">
+          </picture>
+          <picture class="hero__bg-slide-wrap">
+            <source media="(max-width: 767px)" srcset="assets/S-king-banner-slide-02.svg">
+            <img src="assets/king-banner-slide-02.svg" alt="" class="hero__bg-slide" decoding="async">
+          </picture>
+          <picture class="hero__bg-slide-wrap">
+            <source media="(max-width: 767px)" srcset="assets/S-king-banner-slide-03.svg">
+            <img src="assets/king-banner-slide-03.svg" alt="" class="hero__bg-slide" decoding="async">
+          </picture>
         </div>
         <div class="hero__overlay"></div>
       </div>

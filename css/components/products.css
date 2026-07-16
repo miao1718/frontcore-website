@@ -59,14 +59,6 @@
   background: var(--gradient-product-1);
 }
 
-.product-card__overlay--2 {
-  background: var(--gradient-product-2);
-}
-
-.product-card__overlay--3 {
-  background: var(--gradient-product-3);
-}
-
 .product-card__content {
   position: relative;
   z-index: 1;
