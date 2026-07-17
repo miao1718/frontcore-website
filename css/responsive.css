@@ -366,14 +366,6 @@
     scroll-behavior: auto !important;
   }
 
-  .hero__bg-slide {
-    animation: none !important;
-    opacity: 0 !important;
-  }
-
-  .hero__bg-slide-wrap:first-child .hero__bg-slide {
-    opacity: 1 !important;
-  }
 }
 
 /* ============================================================

@@ -42,41 +42,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 0;
-  will-change: opacity;
-  animation: hero-bg-fade 27s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* 首帧立即可见，避免加载期间露出灰底；全程交叉淡入淡出 */
-.hero__bg-slide-wrap:nth-child(1) .hero__bg-slide {
-  opacity: 1;
-  animation-delay: -4.5s;
-}
-
-.hero__bg-slide-wrap:nth-child(2) .hero__bg-slide {
-  animation-delay: -13.5s;
-}
-
-.hero__bg-slide-wrap:nth-child(3) .hero__bg-slide {
-  animation-delay: -22.5s;
-}
-
-@keyframes hero-bg-fade {
-  0% {
-    opacity: 0;
-  }
-  16.67% {
-    opacity: 1;
-  }
-  33.33% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 
 .hero__overlay {
