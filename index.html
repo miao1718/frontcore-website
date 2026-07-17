@@ -10,9 +10,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500&family=Noto+Sans+HK:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=20260717">
+  <link rel="stylesheet" href="css/main.css?v=20260717d">
 </head>
 <body>
+  <a href="#main" class="skip-link">跳到主要内容</a>
+
   <!-- 导航栏 Header -->
   <header class="header" id="header">
     <div class="header__inner">
@@ -37,7 +39,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main" tabindex="-1">
     <!-- Hero 区域 -->
     <section class="hero" id="home" aria-label="首页横幅">
       <div class="hero__bg" aria-hidden="true">
@@ -181,7 +183,7 @@
   <footer class="footer" id="about">
     <div class="footer__inner container">
       <div class="footer__left">
-        <a href="#" class="logo logo--footer" aria-label="前沿方核 FRONTCORE">
+        <a href="#home" class="logo logo--footer" aria-label="前沿方核 FRONTCORE 回到首页">
           <img src="assets/logo.svg" alt="前沿方核 FRONTCORE" class="logo__image" width="122" height="32">
         </a>
         <p class="footer__desc">公司专注于以存算融合为核心，依托全球资源与专业交付能力，赋能客户 AI 创新与产业升级，实现长期共赢发展。</p>
@@ -191,9 +193,9 @@
         <div class="footer__contact">
           <p class="footer__contact-title">联系我们</p>
           <p class="footer__contact-item">地址：广东深圳市福田区长富金茂大厦</p>
-          <p class="footer__contact-item">邮箱：info@frontcore.net</p>
+          <p class="footer__contact-item">邮箱：<a href="mailto:info@frontcore.net">info@frontcore.net</a></p>
         </div>
-        <p class="footer__disclaimer">本网站所有产品图片仅用于展示，实际情况可能有所不同，请以实物为准。</p>
+        <p class="footer__disclaimer">本网站所有产品图片仅用于展示，实际情况可能有所不同，请以实物为准</p>
       </div>
     </div>
   </footer>

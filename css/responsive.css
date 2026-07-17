@@ -39,11 +39,11 @@
 
 /* ============================================================
    断点 lg (≤ 1279px) — 笔记本 / 小屏适配
-   优势区右侧大卡片收窄，保持双列布局
+   优势区右侧大卡片按比例收缩，避免左列过窄
    ============================================================ */
 @media (max-width: 1279px) {
   .advantages__layout {
-    grid-template-columns: 1fr 380px;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 34%);
   }
 
   .advantage-card--featured {
@@ -53,13 +53,13 @@
 
 /* ============================================================
    断点 md-lg (≤ 1023px) — 平板适配
-   - 产品卡片改为 2 列
-   - 优势区改为单列堆叠
+   - 产品卡片改为 2 列，第三张通栏
+   - 优势区：左 2×2 + 右侧大卡改为上下堆叠，上方保持 2 列
    - Hero 高度缩减
    ============================================================ */
 @media (max-width: 1023px) {
   .hero {
-    min-height: 600px;
+    min-height: min(600px, 100dvh);
   }
 
   .hero__content {
@@ -78,11 +78,11 @@
     min-height: 380px;
   }
 
-  /* 第三张产品卡片占满整行 */
+  /* 第三张产品卡片通栏，避免 2+1 居中留白 */
   .products__grid .product-card:last-child {
     grid-column: 1 / -1;
-    max-width: 50%;
-    justify-self: center;
+    max-width: 100%;
+    justify-self: stretch;
   }
 
   .advantages__layout {
@@ -90,7 +90,7 @@
   }
 
   .advantages__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .advantage-card--featured {
@@ -129,7 +129,8 @@
     display: flex;
     justify-content: space-between;
     max-width: none;
-    padding-inline: var(--space-md);
+    padding-inline: max(var(--space-md), env(safe-area-inset-left))
+      max(var(--space-md), env(safe-area-inset-right));
   }
 
   .logo {
@@ -141,6 +142,27 @@
     display: flex;
     grid-column: auto;
     justify-self: auto;
+    position: relative;
+    z-index: 3;
+  }
+
+  /* 半透明遮罩：盖住下方页面，点击可关闭；菜单本身只占内容高度 */
+  .header::after {
+    content: "";
+    position: fixed;
+    inset: var(--header-height) 0 0;
+    z-index: 0;
+    background: rgba(20, 21, 22, 0.28);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s;
+  }
+
+  .header:has(.nav.is-open)::after {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .nav {
@@ -148,10 +170,16 @@
     top: var(--header-height);
     left: 0;
     right: 0;
+    bottom: auto;
+    z-index: 2;
     grid-column: auto;
     justify-self: auto;
-    background-color: var(--color-bg-header);
+    display: block;
+    height: auto;
+    /* 仅包裹导航项，不铺满全屏 */
+    background-color: #eff0f5;
     border-bottom: 1px solid var(--color-border-header);
+    box-shadow: 0 12px 24px rgba(9, 18, 33, 0.08);
     padding: 0;
     transform: translateY(-120%);
     opacity: 0;
@@ -185,7 +213,8 @@
   }
 
   .container {
-    padding-inline: var(--space-md);
+    padding-inline: max(var(--space-md), env(safe-area-inset-left))
+      max(var(--space-md), env(safe-area-inset-right));
   }
 
   .main-content {
@@ -206,7 +235,8 @@
 
   .hero__content {
     padding-block: 32px 56px;
-    padding-inline: var(--space-md);
+    padding-inline: max(var(--space-md), env(safe-area-inset-left))
+      max(var(--space-md), env(safe-area-inset-right));
   }
 
   .hero .btn {
@@ -232,6 +262,10 @@
 
   .product-card {
     min-height: 320px;
+  }
+
+  .advantages__grid {
+    grid-template-columns: 1fr;
   }
 
   .advantage-card {
@@ -318,9 +352,18 @@
 }
 
 /* ============================================================
-   手机横屏专项适配 (landscape + 高度 ≤ 500px)
-   压缩 Hero 高度，避免内容被裁切
+   矮屏适配（平板 / 桌面）— 防止 Hero 高于视口，CTA 被推到首屏外
    ============================================================ */
+@media (max-height: 740px) and (min-width: 768px) {
+  .hero {
+    min-height: min(780px, 100dvh);
+  }
+
+  .hero__content {
+    padding-block: 48px 64px;
+  }
+}
+
 @media (max-height: 500px) and (orientation: landscape) {
   .hero {
     min-height: 52svh;
@@ -333,6 +376,7 @@
 
   .hero__title {
     font-size: clamp(32px, 6vh, 48px);
+    white-space: normal;
   }
 
   .hero__subtitle {

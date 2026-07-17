@@ -74,6 +74,17 @@
   white-space: nowrap;
 }
 
+.footer__contact-item a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer__contact-item a:hover,
+.footer__contact-item a:focus-visible {
+  color: var(--color-text-primary);
+}
+
 .footer__disclaimer {
   font-family: var(--font-footer);
   font-weight: 500;

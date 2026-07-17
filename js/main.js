@@ -222,10 +222,29 @@
         }
       });
     }
+
+    var footerLogo = document.querySelector(".logo--footer");
+    if (footerLogo) {
+      footerLogo.addEventListener("click", function (e) {
+        e.preventDefault();
+        scrollToSection("home");
+        setActiveNavLink("home");
+
+        if (history.replaceState) {
+          history.replaceState(null, "", "#home");
+        }
+      });
+    }
   }
 
   if (!menuBtn || !nav) {
     return;
+  }
+
+  function getMenuFocusableElements() {
+    return [menuBtn].concat(
+      Array.prototype.slice.call(nav.querySelectorAll('a[href], button:not([disabled])'))
+    );
   }
 
   /** 切换移动端导航菜单 */
@@ -235,13 +254,24 @@
     menuBtn.setAttribute("aria-expanded", String(isOpen));
     menuBtn.setAttribute("aria-label", isOpen ? "关闭菜单" : "打开菜单");
     document.body.style.overflow = isOpen ? "hidden" : "";
+
+    if (isOpen) {
+      var firstLink = nav.querySelector(".nav__link");
+      if (firstLink) {
+        requestAnimationFrame(function () {
+          firstLink.focus();
+        });
+      }
+    } else if (document.activeElement && (nav.contains(document.activeElement) || document.activeElement === menuBtn)) {
+      menuBtn.focus();
+    }
   }
 
   menuBtn.addEventListener("click", function () {
     toggleMenu();
   });
 
-  /** 点击菜单外区域关闭 */
+  /** 点击菜单外区域 / 遮罩关闭 */
   document.addEventListener("click", function (e) {
     if (
       nav.classList.contains("is-open") &&
@@ -252,11 +282,38 @@
     }
   });
 
-  /** ESC 键关闭菜单 */
+  /** ESC 关闭；Tab 在菜单内循环焦点 */
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && nav.classList.contains("is-open")) {
+    if (!nav.classList.contains("is-open")) {
+      return;
+    }
+
+    if (e.key === "Escape") {
       toggleMenu(true);
-      menuBtn.focus();
+      return;
+    }
+
+    if (e.key !== "Tab") {
+      return;
+    }
+
+    var focusable = getMenuFocusableElements();
+    if (!focusable.length) {
+      return;
+    }
+
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    var active = document.activeElement;
+
+    if (e.shiftKey) {
+      if (active === first || !nav.contains(active) && active !== menuBtn) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else if (active === last) {
+      e.preventDefault();
+      first.focus();
     }
   });
 
