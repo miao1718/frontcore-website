@@ -2,3 +2,5 @@
 Thumbs.db
 *.log
 .cursor/
+node_modules/
+dist/

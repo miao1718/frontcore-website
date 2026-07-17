@@ -2,19 +2,23 @@
 
 基于 [Figma 设计稿](https://www.figma.com/design/g1kak5brUnSq3AMerpzXs1/1122?node-id=151-314&m=dev) 实现的响应式企业官网。
 
+技术栈：Vite + Tailwind CSS v4 + 原生 JS。
+
 ## 快速启动
 
-直接用浏览器打开 `index.html`，或使用本地服务器：
-
 ```bash
-# Python 3
-python3 -m http.server 8080
+# 安装依赖
+npm install
 
-# Node.js (需安装 npx)
-npx serve .
+# 开发预览
+npm run dev
+
+# 生产构建（输出到 dist/）
+npm run build
+
+# 预览构建产物
+npm run preview
 ```
-
-访问 `http://localhost:8080` 即可预览。
 
 ## 项目结构
 
@@ -22,20 +26,14 @@ npx serve .
 Front Cure/
 ├── index.html              # 页面入口
 ├── assets/                 # 图片资源（来自 Figma 导出）
-├── css/
-│   ├── main.css            # 样式入口（聚合所有模块）
-│   ├── variables.css       # 设计令牌（色值、字体、间距）
-│   ├── base.css            # 全局重置与通用样式
-│   ├── responsive.css      # 响应式断点适配（含注释说明）
-│   └── components/         # 组件样式模块
-│       ├── header.css      # 导航栏
-│       ├── hero.css        # Hero 横幅
-│       ├── mission.css     # 使命宣言
-│       ├── products.css    # 产品能力
-│       ├── advantages.css  # 我们的优势
-│       └── footer.css      # 页脚
-└── js/
-    └── main.js             # 交互逻辑（移动端菜单）
+├── src/
+│   └── css/
+│       └── main.css        # Tailwind 入口（@theme + 组件层）
+├── js/
+│   └── main.js             # 交互逻辑（移动端菜单 / 滚动 / 锚点）
+├── package.json
+├── vite.config.js
+└── dist/                   # npm run build 产物
 ```
 
 ## 断点适配说明
@@ -84,16 +82,18 @@ Front Cure/
 
 ## 设计令牌
 
-所有色值、间距定义在 `css/variables.css`，修改断点数值请编辑 `css/responsive.css`（文件内均有中文注释标注）。
+色值、字体、断点等定义在 `src/css/main.css` 的 `@theme` 与 `:root` 中；复杂组件样式与响应式规则写在 `@layer components`。
 
 ## 待确认项
 
-1. **导航链接**：当前为占位 `#`，需确认各页面实际路由
+1. **导航链接**：当前为页内锚点，需确认各页面实际路由
 2. **CTA 按钮**：「查看产品方案」跳转目标待确认
 3. **版权文字**：设计稿中为「版权所有 © 2026深圳市前沿方核科技有限公」，末尾「司」字疑似截断，请确认完整文案
 
 ## 技术说明
 
-- 纯 HTML + CSS + 原生 JS，无构建依赖，开箱即用
-- 样式按组件模块化拆分，便于后期维护
+- Vite + Tailwind CSS v4（`@tailwindcss/vite`）
+- 原生 JS 交互，无框架依赖
+- 渐变遮罩、卡片 hover、汉堡菜单与滚动态等保留在组件层 CSS，以保证视觉对齐
 - 图片资源从 Figma 导出，存放于 `assets/` 目录
+- 部署时请发布 `dist/` 目录
