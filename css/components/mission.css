@@ -1,0 +1,51 @@
+/**
+ * 使命宣言 Mission Banner
+ * Figma: Frame 40 (151:351) - 高度 216px, padding 54px, 圆角 8px
+ */
+
+.mission__banner {
+  position: relative;
+  width: 100%;
+  min-height: 216px;
+  padding: clamp(24px, 5vw, 54px);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.mission__banner-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+}
+
+.mission__banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-mission-overlay);
+  border-radius: var(--radius-card);
+}
+
+.mission__banner-text {
+  position: relative;
+  z-index: 1;
+}
+
+.mission__title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(24px, 3.5vw, 36px);
+  line-height: 1.5;
+  color: var(--color-text-primary);
+}
+
+.mission__title br {
+  display: block;
+}

@@ -1,0 +1,74 @@
+/**
+ * 设计令牌 Design Tokens
+ * 来源：Figma 设计稿 node-id=151-314
+ * 所有色值、间距、字体均参照 Figma 实现
+ */
+
+:root {
+  /* ===== 色彩 Colors ===== */
+  --color-primary: #0057ff;
+  --color-text-primary: #141516;
+  --color-text-secondary: #535863;
+  --color-text-nav: #091221;
+  --color-text-muted: rgba(83, 88, 99, 0.8);
+  --color-bg-header: #eff0f5;
+  --color-border-header: #e1e4ed;
+  --color-border-footer: #e1e6ef;
+  --color-white: #ffffff;
+  --color-overlay-light: rgba(255, 255, 255, 0.14);
+  --color-fallback-dark: #3b3b3b;
+
+  /* Hero 遮罩渐变 */
+  --gradient-hero-overlay: linear-gradient(
+    -12.47deg,
+    rgba(243, 245, 247, 0.094) 43.565%,
+    rgba(255, 255, 255, 0.451) 76.295%
+  );
+
+  /* 使命横幅渐变 */
+  --gradient-mission-overlay: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 54.75%,
+    rgba(0, 0, 0, 0.61)
+  );
+
+  /* 产品卡片渐变 */
+  --gradient-product-1: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 36.222%,
+    rgba(255, 255, 255, 0.6) 82.142%
+  );
+
+  /* ===== 字体 Typography ===== */
+  --font-heading: "PingFang SC", "PingFang TC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  --font-body: "PingFang SC", "PingFang TC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  --font-footer: "Noto Sans HK", "PingFang SC", sans-serif;
+  --font-button: "Gabarito", "PingFang SC", sans-serif;
+
+  /* ===== 布局 Layout ===== */
+  --container-max: 1400px;
+  --header-height: 70px;
+
+  /* ===== 间距 Spacing (Figma 精确值) ===== */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-3xl: 72px;
+
+  /* ===== 卡片（产品能力 / 我们的优势 共用） ===== */
+  --radius-card: 8px;
+  --card-hover-scale: 1.08;
+  --card-hover-duration: 0.48s;
+  --card-hover-easing: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ===== 断点 Breakpoints (用于 JS 参考) ===== */
+  --bp-xs: 320px;   /* 小屏手机 */
+  --bp-sm: 480px;   /* 手机竖屏 */
+  --bp-md: 768px;   /* 手机横屏 / 小平板 */
+  --bp-lg: 1024px;  /* 大屏平板 / 小笔记本 */
+  --bp-xl: 1280px;  /* 笔记本 */
+  --bp-2xl: 1440px; /* 台式标准屏 */
+  --bp-3xl: 1920px; /* 设计稿基准宽度 */
+}
