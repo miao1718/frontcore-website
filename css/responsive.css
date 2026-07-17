@@ -194,9 +194,9 @@
   }
 
   .hero {
-    /* 小屏约 56dvh；padding-top 已计入 border-box */
-    min-height: 56svh;
-    min-height: 56dvh;
+    /* 小屏约 52dvh；padding-top 已计入 border-box */
+    min-height: 52svh;
+    min-height: 52dvh;
   }
 
   /* S-king 为 440×260 横构图，右对齐保留右侧芯片主体 */
@@ -264,8 +264,8 @@
   }
 
   .hero {
-    min-height: 56svh;
-    min-height: 56dvh;
+    min-height: 52svh;
+    min-height: 52dvh;
   }
 
   .hero__bg-image {
@@ -323,8 +323,8 @@
    ============================================================ */
 @media (max-height: 500px) and (orientation: landscape) {
   .hero {
-    min-height: 56svh;
-    min-height: 56dvh;
+    min-height: 52svh;
+    min-height: 52dvh;
   }
 
   .hero__content {
