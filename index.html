@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500&family=Noto+Sans+HK:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main.css?v=20260717">
 </head>
 <body>
   <!-- 导航栏 Header -->
@@ -40,13 +40,11 @@
   <main>
     <!-- Hero 区域 -->
     <section class="hero" id="home" aria-label="首页横幅">
-      <div class="hero__bg">
-        <div class="hero__bg-slides" aria-hidden="true">
-          <picture class="hero__bg-slide-wrap">
-            <source media="(max-width: 767px)" srcset="assets/S-king-banner-slide-01.svg">
-            <img src="assets/king-banner-slide-01.svg" alt="" class="hero__bg-slide" fetchpriority="high" decoding="async">
-          </picture>
-        </div>
+      <div class="hero__bg" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/S-king-banner-slide-01.svg">
+          <img src="assets/king-banner-slide-01.svg" alt="" class="hero__bg-image" fetchpriority="high" decoding="async">
+        </picture>
         <div class="hero__overlay"></div>
       </div>
       <div class="hero__content">

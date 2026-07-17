@@ -200,7 +200,7 @@
   }
 
   /* S-king 为 440×260 横构图，右对齐保留右侧芯片主体 */
-  .hero__bg-slide {
+  .hero__bg-image {
     object-position: right center;
   }
 
@@ -268,7 +268,7 @@
     min-height: 56dvh;
   }
 
-  .hero__bg-slide {
+  .hero__bg-image {
     object-position: 78% 42%;
   }
 
@@ -372,7 +372,7 @@
    高分辨率屏幕 — 图片渲染优化
    ============================================================ */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .hero__bg-slide,
+  .hero__bg-image,
   .product-card__image,
   .advantage-card__image,
   .mission__banner-image {

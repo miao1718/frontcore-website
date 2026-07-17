@@ -19,29 +19,22 @@
   overflow: hidden;
 }
 
-.hero__bg-slides {
+.hero__bg picture {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-}
-
-.hero__bg-slide-wrap {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
   display: block;
+  width: 100%;
+  height: 100%;
 }
 
-.hero__bg-slide {
+.hero__bg-image {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  animation: none;
 }
 
 .hero__overlay {
