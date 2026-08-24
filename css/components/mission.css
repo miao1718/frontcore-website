@@ -49,29 +49,3 @@
 .mission__title br {
   display: block;
 }
-
-.mission__brand {
-  margin-top: var(--space-lg, 24px);
-  max-width: 720px;
-}
-
-.mission__brand-title {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: clamp(18px, 2.2vw, 22px);
-  line-height: 1.4;
-  color: var(--color-text-primary);
-  margin: 0 0 10px;
-}
-
-.mission__brand p {
-  font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--color-text-secondary);
-  margin: 0 0 10px;
-}
-
-.mission__brand p:last-child {
-  margin-bottom: 0;
-}

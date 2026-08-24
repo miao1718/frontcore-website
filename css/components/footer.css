@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-width: 506px;
+  max-width: 560px;
 }
 
 .logo--footer {
@@ -35,13 +35,19 @@
   color: var(--color-text-muted);
 }
 
+.footer__desc a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .footer__copyright {
   font-family: var(--font-footer);
   font-weight: 500;
   font-size: 13px;
   line-height: 1.4;
   color: var(--color-text-muted);
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .footer__right {
