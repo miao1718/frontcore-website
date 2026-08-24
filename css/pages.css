@@ -52,10 +52,7 @@
 }
 
 .footer__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 20px;
-  margin-top: 8px;
+  display: none;
 }
 
 .footer__links a {
