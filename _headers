@@ -1,0 +1,16 @@
+/*
+  Vary: Accept, Accept-Encoding
+/index.md
+  Content-Type: text/markdown; charset=utf-8
+/about.md
+  Content-Type: text/markdown; charset=utf-8
+/contact.md
+  Content-Type: text/markdown; charset=utf-8
+/privacy.md
+  Content-Type: text/markdown; charset=utf-8
+/404.md
+  Content-Type: text/markdown; charset=utf-8
+/agent-instructions.md
+  Content-Type: text/markdown; charset=utf-8
+/llms.txt
+  Content-Type: text/plain; charset=utf-8

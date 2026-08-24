@@ -1,0 +1,92 @@
+/**
+ * 内页样式（关于我们、联系我们、隐私政策、404）
+ */
+
+.page {
+  padding-block: calc(var(--header-height) + 48px) 80px;
+}
+
+.page__content {
+  max-width: 720px;
+}
+
+.page__content h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.page__content h2 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-block: var(--space-xl) var(--space-md);
+}
+
+.page__content p,
+.page__content li {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.page__content ul {
+  padding-left: 1.25em;
+  margin-bottom: var(--space-lg);
+}
+
+.page__content a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.page__content a:hover,
+.page__content a:focus-visible {
+  color: var(--color-text-primary);
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 8px;
+}
+
+.footer__links a {
+  font-family: var(--font-footer);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.footer__links a:hover,
+.footer__links a:focus-visible {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.page-404 {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.page-404 pre {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-header);
+  border-radius: var(--radius-card);
+  padding: var(--space-lg);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  margin-top: var(--space-lg);
+}
