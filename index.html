@@ -4,14 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Frontcore 前沿方核 - 深圳市前沿方核科技有限公司，构建新一代算力基础设施底座。提供 GPU 算力、服务器内存、企业级存储与整机配套资源，立足粤港澳大湾区，服务全球 AI 算力采购需求。">
+  <meta name="keywords" content="前沿方核,Frontcore,算力基础设施,GPU算力,AI算力采购,服务器内存,DDR4,DDR5,ECC RDIMM,企业级存储,NVMe SSD,AI服务器,存算融合,粤港澳大湾区,算力硬件,整机配套,OEM BOM,供应链协同">
+  <meta name="author" content="深圳市前沿方核科技有限公司">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0057ff">
   <link rel="canonical" href="https://frontcore.net/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Frontcore | 前沿方核">
   <meta property="og:url" content="https://frontcore.net/">
   <meta property="og:title" content="Frontcore | 前沿方核 - 构建新一代算力基础设施底座">
   <meta property="og:description" content="GPU 算力、服务器内存、企业级存储与整机配套。立足粤港澳大湾区，服务全球算力基础设施需求。">
   <meta property="og:image" content="https://frontcore.net/assets/mission-banner.jpg">
+  <meta property="og:image:alt" content="前沿方核 - 构建新一代算力基础设施底座">
   <meta property="og:locale" content="zh_CN">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Frontcore | 前沿方核 - 构建新一代算力基础设施底座">
+  <meta name="twitter:description" content="GPU 算力、服务器内存、企业级存储与整机配套。立足粤港澳大湾区，服务全球算力基础设施需求。">
+  <meta name="twitter:image" content="https://frontcore.net/assets/mission-banner.jpg">
+  <meta name="twitter:image:alt" content="前沿方核 - 构建新一代算力基础设施底座">
   <title>Frontcore | 前沿方核 - 构建新一代算力基础设施底座</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="text/markdown" href="https://frontcore.net/index.md" title="Markdown version">
@@ -19,37 +29,62 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Frontcore",
-    "alternateName": ["前沿方核", "深圳市前沿方核科技有限公司"],
-    "legalName": "深圳市前沿方核科技有限公司",
-    "url": "https://frontcore.net",
-    "logo": "https://frontcore.net/assets/logo.svg",
-    "description": "构建新一代算力基础设施底座，提供 GPU 算力、服务器内存、企业级存储与整机配套资源，立足粤港澳大湾区，服务全球 AI 算力采购需求。",
-    "foundingLocation": {
-      "@type": "Place",
-      "name": "深圳市福田区",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "福田区",
-        "addressRegion": "广东省",
-        "addressCountry": "CN"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://frontcore.net/#website",
+        "url": "https://frontcore.net/",
+        "name": "Frontcore",
+        "alternateName": "前沿方核",
+        "description": "构建新一代算力基础设施底座，提供 GPU 算力、服务器内存、企业级存储与整机配套资源。",
+        "publisher": { "@id": "https://frontcore.net/#organization" },
+        "inLanguage": "zh-CN"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://frontcore.net/#organization",
+        "name": "Frontcore",
+        "alternateName": ["前沿方核", "深圳市前沿方核科技有限公司"],
+        "legalName": "深圳市前沿方核科技有限公司",
+        "url": "https://frontcore.net",
+        "logo": "https://frontcore.net/assets/logo.svg",
+        "description": "构建新一代算力基础设施底座，提供 GPU 算力、服务器内存、企业级存储与整机配套资源，立足粤港澳大湾区，服务全球 AI 算力采购需求。",
+        "foundingLocation": {
+          "@type": "Place",
+          "name": "深圳市福田区",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "福田区",
+            "addressRegion": "广东省",
+            "addressCountry": "CN"
+          }
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "长富金茂大厦",
+          "addressLocality": "福田区",
+          "addressRegion": "广东省",
+          "addressCountry": "CN"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "info@frontcore.net",
+          "contactType": "customer service",
+          "availableLanguage": ["Chinese", "English"]
+        },
+        "knowsAbout": ["GPU compute", "server memory", "enterprise storage", "AI infrastructure", "supply chain", "GPU算力", "服务器内存", "企业级存储", "算力基础设施", "存算融合", "AI算力采购"]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://frontcore.net/#webpage",
+        "url": "https://frontcore.net/",
+        "name": "Frontcore | 前沿方核 - 构建新一代算力基础设施底座",
+        "description": "Frontcore 前沿方核 - 深圳市前沿方核科技有限公司，构建新一代算力基础设施底座。提供 GPU 算力、服务器内存、企业级存储与整机配套资源。",
+        "isPartOf": { "@id": "https://frontcore.net/#website" },
+        "about": { "@id": "https://frontcore.net/#organization" },
+        "inLanguage": "zh-CN"
       }
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "长富金茂大厦",
-      "addressLocality": "福田区",
-      "addressRegion": "广东省",
-      "addressCountry": "CN"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "info@frontcore.net",
-      "contactType": "customer service",
-      "availableLanguage": ["Chinese", "English"]
-    },
-    "knowsAbout": ["GPU compute", "server memory", "enterprise storage", "AI infrastructure", "supply chain"]
+    ]
   }
   </script>
   <link rel="apple-touch-icon" href="assets/favicon.svg">
