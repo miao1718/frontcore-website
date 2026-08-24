@@ -212,6 +212,39 @@
     border-bottom: none;
   }
 
+  .header--inner::after {
+    display: none;
+  }
+
+  .header--inner .nav {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
+    padding: 0;
+    display: flex;
+  }
+
+  .header--inner .nav__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 4px 12px;
+    width: auto;
+  }
+
+  .header--inner .nav__link {
+    width: auto;
+    border-bottom: none;
+    padding: 8px 2px;
+    font-size: 13px;
+    min-height: auto;
+    justify-content: flex-end;
+  }
+
   .container {
     padding-inline: max(var(--space-md), env(safe-area-inset-left))
       max(var(--space-md), env(safe-area-inset-right));

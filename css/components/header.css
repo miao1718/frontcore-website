@@ -138,3 +138,21 @@
 .header__menu-btn[aria-expanded="true"] .header__menu-bar:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
+
+/* 内页顶部导航（关于 / 联系 / 隐私 / 404） */
+.header--inner .header__inner {
+  grid-template-columns: auto 1fr;
+}
+
+.header--inner .nav {
+  grid-column: 2;
+  justify-self: end;
+}
+
+.header--inner .nav__list {
+  gap: 24px;
+}
+
+.header--inner .nav__link--active {
+  color: var(--color-primary);
+}
