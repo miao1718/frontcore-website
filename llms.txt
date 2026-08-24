@@ -24,12 +24,15 @@
 
 ## Markdown versions
 
-当客户端发送 `Accept: text/markdown` 时，站点（经 CDN Worker 配置后）可返回 Markdown 正文；也可直接访问：
+当边缘已部署 Cloudflare Worker（见 `cloudflare/markdown-worker.js`）时，客户端发送 `Accept: text/markdown` 可获得 Markdown 正文，响应头包含 `Vary: Accept, Accept-Encoding`。
+
+亦可直接访问（无需协商）：
 
 - https://frontcore.net/index.md
 - https://frontcore.net/about.md
 - https://frontcore.net/contact.md
 - https://frontcore.net/privacy.md
+- https://frontcore.net/404.md
 
 ## Contact
 

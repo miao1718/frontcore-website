@@ -1,0 +1,16 @@
+{
+  "name": "frontcore-markdown",
+  "main": "cloudflare/markdown-worker.js",
+  "compatibility_date": "2026-04-18",
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "frontcore.net/*",
+      "zone_name": "frontcore.net"
+    },
+    {
+      "pattern": "www.frontcore.net/*",
+      "zone_name": "frontcore.net"
+    }
+  ]
+}

@@ -1,93 +1,128 @@
 /**
- * Cloudflare Worker: Markdown content negotiation (acceptmarkdown.com)
+ * Cloudflare Worker: Accept: text/markdown negotiation for frontcore.net
+ * Protocol: https://acceptmarkdown.com/
  *
- * Deploy in front of GitHub Pages for frontcore.net.
- * Routes with Accept: text/markdown receive the matching .md file.
- *
- * Setup:
- * 1. Workers & Pages → Create Worker → paste this script
- * 2. Add route: frontcore.net/* (and www.frontcore.net/* if used)
- * 3. Ensure .md files are deployed to origin (GitHub Pages)
+ * Deploy:
+ *   1. Point frontcore.net DNS through Cloudflare (proxied)
+ *   2. npx wrangler login && npx wrangler deploy
  */
 
-const MD_MAP = {
-  "/": "/index.md",
-  "/index.html": "/index.md",
-  "/about": "/about.md",
-  "/about/": "/about.md",
-  "/about/index.html": "/about.md",
-  "/contact": "/contact.md",
-  "/contact/": "/contact.md",
-  "/contact/index.html": "/contact.md",
-  "/privacy": "/privacy.md",
-  "/privacy/": "/privacy.md",
-  "/privacy/index.html": "/privacy.md",
-};
+import {
+  preferredType,
+  appendVaryAccept,
+  markdownPath,
+  STATIC_EXT,
+  PRODUCES,
+} from "../lib/accept.mjs";
 
-function resolveMdPath(pathname) {
-  if (MD_MAP[pathname]) return MD_MAP[pathname];
-  if (pathname.endsWith(".html")) {
-    return pathname.replace(/\.html$/, ".md");
-  }
-  if (pathname.endsWith(".md")) return pathname;
-  return null;
+function markdownResponse(body, status = 200) {
+  const headers = new Headers({
+    "Content-Type": "text/markdown; charset=utf-8",
+    "Cache-Control": status === 404 ? "public, max-age=300" : "public, max-age=3600",
+  });
+  appendVaryAccept(headers);
+  return new Response(body, { status, headers });
 }
 
-function withVary(response) {
-  const headers = new Headers(response.headers);
-  headers.set("Vary", "Accept, Accept-Encoding");
-  return new Response(response.body, {
-    status: response.status,
-    statusText: response.statusText,
-    headers,
+function notAcceptable() {
+  const headers = new Headers({
+    "Content-Type": "text/plain; charset=utf-8",
+    "Cache-Control": "no-store",
   });
+  appendVaryAccept(headers);
+  return new Response(
+    "Not Acceptable\n\nAvailable: text/html, text/markdown\n",
+    { status: 406, headers }
+  );
+}
+
+async function fetch404Markdown(origin, request) {
+  const md404 = await fetch(
+    new Request(new URL("/404.md", origin).toString(), request)
+  );
+  if (md404.ok) return md404.text();
+  return null;
 }
 
 export default {
   async fetch(request) {
-    const accept = request.headers.get("Accept") || "";
-    if (!accept.includes("text/markdown")) {
-      const response = await fetch(request);
-      return withVary(response);
-    }
-
     const url = new URL(request.url);
-    const mdPath = resolveMdPath(url.pathname);
+    const accept = request.headers.get("Accept");
 
-    if (!mdPath) {
-      const fallback = await fetch(request);
-      if (fallback.status === 404) {
-        const md404 = await fetch(new URL("/404.md", url.origin).toString());
-        if (md404.ok) {
-          const body = await md404.text();
-          return new Response(body, {
-            status: 404,
-            headers: {
-              "Content-Type": "text/markdown; charset=utf-8",
-              "Vary": "Accept, Accept-Encoding",
-              "Cache-Control": "public, max-age=300",
-            },
-          });
+    if (url.pathname.endsWith(".md")) {
+      const res = await fetch(request);
+      const headers = new Headers(res.headers);
+      headers.set("Content-Type", "text/markdown; charset=utf-8");
+      appendVaryAccept(headers);
+      return new Response(res.body, { status: res.status, headers });
+    }
+
+    if (STATIC_EXT.test(url.pathname)) {
+      return fetch(request);
+    }
+
+    const chosen = preferredType(accept, PRODUCES);
+
+    if (chosen === null && accept) {
+      return notAcceptable();
+    }
+
+    if (chosen === "text/markdown") {
+      const mdSibling = markdownPath(url.pathname);
+
+      if (mdSibling) {
+        const mdRes = await fetch(
+          new Request(new URL(mdSibling, url.origin).toString(), request)
+        );
+        if (mdRes.ok) {
+          return markdownResponse(await mdRes.text(), 200);
         }
+        // Known page but missing .md — fall through to HTML only if Accept allows it
+        if (!preferredType(accept, ["text/html"])) {
+          return notAcceptable();
+        }
+      } else {
+        // Unknown path: real 404 with markdown recovery body
+        const originRes = await fetch(request);
+        if (originRes.status === 404) {
+          const body = await fetch404Markdown(url.origin, request);
+          if (body) return markdownResponse(body, 404);
+        }
+        if (!preferredType(accept, ["text/html"])) {
+          const body = await fetch404Markdown(url.origin, request);
+          if (body) return markdownResponse(body, 404);
+          return notAcceptable();
+        }
+        // HTML still acceptable — continue with origin response below
+        const headers = new Headers(originRes.headers);
+        appendVaryAccept(headers);
+        return new Response(originRes.body, {
+          status: originRes.status,
+          statusText: originRes.statusText,
+          headers,
+        });
       }
-      return withVary(fallback);
     }
 
-    const mdUrl = new URL(mdPath, url.origin);
-    const mdResponse = await fetch(mdUrl.toString());
+    const htmlRes = await fetch(request);
+    const headers = new Headers(htmlRes.headers);
+    appendVaryAccept(headers);
 
-    if (!mdResponse.ok) {
-      return withVary(await fetch(request));
+    const mdSibling = markdownPath(url.pathname);
+    if (
+      htmlRes.status === 200 &&
+      mdSibling &&
+      headers.get("content-type")?.includes("text/html")
+    ) {
+      const linkValue = `<${mdSibling}>; rel="alternate"; type="text/markdown"`;
+      const existing = headers.get("Link");
+      headers.set("Link", existing ? `${existing}, ${linkValue}` : linkValue);
     }
 
-    const body = await mdResponse.text();
-    return new Response(body, {
-      status: 200,
-      headers: {
-        "Content-Type": "text/markdown; charset=utf-8",
-        "Vary": "Accept, Accept-Encoding",
-        "Cache-Control": "public, max-age=3600",
-      },
+    return new Response(htmlRes.body, {
+      status: htmlRes.status,
+      statusText: htmlRes.statusText,
+      headers,
     });
   },
 };

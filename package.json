@@ -1,0 +1,18 @@
+{
+  "name": "frontcore-website",
+  "private": true,
+  "type": "module",
+  "description": "Frontcore (前沿方核) marketing site with agent-ready content negotiation",
+  "scripts": {
+    "serve": "node scripts/serve.mjs",
+    "test": "node --test tests/agent-readiness.test.mjs && node scripts/test-accept.mjs",
+    "test:unit": "node scripts/test-accept.mjs",
+    "test:integration": "node --test tests/agent-readiness.test.mjs",
+    "verify:local": "node scripts/verify.mjs http://127.0.0.1:8080",
+    "verify:prod": "node scripts/verify.mjs https://frontcore.net",
+    "verify:agentic": "bash scripts/verify-agentic.sh"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
