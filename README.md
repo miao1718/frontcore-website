@@ -1,4 +1,4 @@
-# 前沿方核 FRONTCORE 官网
+# Frontcore 前沿方核 官网
 
 基于 [Figma 设计稿](https://www.figma.com/design/g1kak5brUnSq3AMerpzXs1/1122?node-id=151-314&m=dev) 实现的响应式企业官网。
 

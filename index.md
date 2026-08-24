@@ -1,4 +1,4 @@
-# 前沿方核 Frontcore（frontcore.net）
+# Frontcore 前沿方核（frontcore.net）
 
 **构建新一代算力基础设施底座**
 
@@ -8,7 +8,7 @@
 
 ## 公司定位
 
-立足粤港澳大湾区，服务全球算力基础设施需求。前沿方核 Frontcore 聚焦 GPU 算力、服务器内存、企业级存储与整机配套资源，为 AI 训练、推理、PoC 及 OEM 项目提供 B2B 硬件采购与供应链协同支持。
+立足粤港澳大湾区，服务全球算力基础设施需求。Frontcore 前沿方核 聚焦 GPU 算力、服务器内存、企业级存储与整机配套资源，为 AI 训练、推理、PoC 及 OEM 项目提供 B2B 硬件采购与供应链协同支持。
 
 ## 产品能力
 
@@ -33,7 +33,7 @@
 
 ## 联系我们
 
-- 品牌：前沿方核 / Frontcore
+- 品牌：Frontcore / 前沿方核
 - 法定名称：深圳市前沿方核科技有限公司
 - 地址：广东深圳市福田区长富金茂大厦
 - 邮箱：info@frontcore.net
@@ -53,4 +53,4 @@
 
 ## 检索主题（SEO / Agent）
 
-前沿方核 Frontcore 面向以下 B2B 采购检索意图：GPU 算力采购、深圳 GPU 采购、AI 算力采购、DDR4/DDR5 ECC RDIMM 服务器内存、企业级 NVMe SSD、AI 服务器整机与 OEM BOM 配套、粤港澳大湾区算力基础设施供应链。
+Frontcore 前沿方核 面向以下 B2B 采购检索意图：GPU 算力采购、深圳 GPU 采购、AI 算力采购、DDR4/DDR5 ECC RDIMM 服务器内存、企业级 NVMe SSD、AI 服务器整机与 OEM BOM 配套、粤港澳大湾区算力基础设施供应链。
