@@ -74,20 +74,6 @@
   font-size: clamp(40px, 8vw, 76px);
   line-height: 1.1;
   color: var(--color-text-primary);
-  display: flex;
-  flex-direction: column;
-  gap: 0.08em;
-}
-
-.hero__title-zh {
-  white-space: nowrap;
-}
-
-.hero__title-en {
-  font-size: 0.42em;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  line-height: 1.2;
   white-space: nowrap;
 }
 
@@ -97,16 +83,6 @@
   font-size: clamp(20px, 3.5vw, 38px);
   line-height: 1.4;
   color: var(--color-text-primary);
-}
-
-.hero__brand-line {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: clamp(13px, 1.6vw, 16px);
-  line-height: 1.5;
-  color: var(--color-text-primary);
-  opacity: 0.85;
-  max-width: 36em;
 }
 
 /* CTA 按钮 */
