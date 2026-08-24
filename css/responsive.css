@@ -412,8 +412,16 @@
     white-space: normal;
   }
 
+  .hero__title-en {
+    font-size: 0.38em;
+  }
+
   .hero__subtitle {
     font-size: clamp(16px, 3vh, 24px);
+  }
+
+  .hero__brand-line {
+    font-size: 13px;
   }
 }
 

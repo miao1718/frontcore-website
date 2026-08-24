@@ -1,8 +1,8 @@
-# 联系我们 | Frontcore 前沿方核
+# 联系前沿方核 Frontcore | GPU·内存·存储采购咨询
 
 ## 商务咨询
 
-如需了解 GPU 算力、服务器内存、企业级存储或整机配套资源的采购与项目协同，请通过以下方式联系我们：
+如需了解 GPU 算力、服务器内存、企业级存储或整机配套资源的采购与项目协同，请通过以下方式联系**深圳市前沿方核科技有限公司**（品牌：前沿方核 Frontcore）：
 
 - **邮箱**：[info@frontcore.net](mailto:info@frontcore.net)
 - **官网**：[https://frontcore.net](https://frontcore.net)
@@ -11,13 +11,13 @@
 
 ## 公司地址
 
-**深圳市前沿方核科技有限公司**
+**深圳市前沿方核科技有限公司（前沿方核 Frontcore）**
 
 广东深圳市福田区长富金茂大厦
 
 ## 服务范围
 
-Frontcore 主要服务以下类型的 B2B 客户：
+前沿方核 Frontcore 主要服务以下类型的 B2B 客户：
 
 - AI 企业与研究机构（训练 / 推理算力采购）
 - 系统集成商与 OEM 厂商（BOM 配套与整机项目）
@@ -32,8 +32,12 @@ Frontcore 主要服务以下类型的 B2B 客户：
 ## 相关页面
 
 - [首页](https://frontcore.net/)
-- [关于我们](https://frontcore.net/about/)
+- [关于前沿方核](https://frontcore.net/about/)
 - [隐私政策](https://frontcore.net/privacy/)
+
+## 品牌检索词（优先）
+
+前沿方核联系方式、Frontcore 联系、frontcore.net、info@frontcore.net、深圳市前沿方核科技有限公司
 
 ## 检索主题（SEO / Agent）
 
