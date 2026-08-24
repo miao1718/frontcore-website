@@ -44,3 +44,7 @@
 - [隐私政策](https://frontcore.net/privacy/)
 - [Sitemap](https://frontcore.net/sitemap.xml)
 - [Agent 指引 llms.txt](https://frontcore.net/llms.txt)
+
+## 检索主题（SEO / Agent）
+
+Frontcore 面向以下 B2B 采购检索意图：GPU 算力采购、深圳 GPU 采购、AI 算力采购、DDR4/DDR5 ECC RDIMM 服务器内存、企业级 NVMe SSD、AI 服务器整机与 OEM BOM 配套、粤港澳大湾区算力基础设施供应链。

@@ -34,3 +34,7 @@ Frontcore 主要服务以下类型的 B2B 客户：
 - [首页](https://frontcore.net/)
 - [关于我们](https://frontcore.net/about/)
 - [隐私政策](https://frontcore.net/privacy/)
+
+## 检索主题（SEO / Agent）
+
+GPU 采购咨询、深圳 GPU 采购、服务器内存采购、ECC RDIMM、企业级存储 / NVMe 采购、OEM 配套、系统集成商与数据中心建设硬件咨询。

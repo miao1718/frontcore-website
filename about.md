@@ -35,3 +35,7 @@
 - [首页](https://frontcore.net/)
 - [联系我们](https://frontcore.net/contact/)
 - [隐私政策](https://frontcore.net/privacy/)
+
+## 检索主题（SEO / Agent）
+
+深圳算力公司、GPU 算力资源、服务器内存、企业级存储、存算融合、AI 训练 / 推理硬件采购配套。

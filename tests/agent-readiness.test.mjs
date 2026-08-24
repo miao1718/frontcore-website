@@ -161,7 +161,7 @@ test("homepage HTML has H1, nested headings, and 500+ chars without JS", async (
   });
 });
 
-test("homepage JSON-LD includes Organization and SoftwareApplication", async () => {
+test("homepage JSON-LD includes Organization and OfferCatalog", async () => {
   await withServer(async (base) => {
     const html = await (await fetch(base + "/")).text();
     const match = html.match(
@@ -174,13 +174,14 @@ test("homepage JSON-LD includes Organization and SoftwareApplication", async () 
       Array.isArray(n["@type"]) ? n["@type"] : [n["@type"]]
     );
     assert.ok(types.includes("Organization"));
-    assert.ok(types.includes("SoftwareApplication"));
+    assert.ok(types.includes("OfferCatalog"));
     assert.ok(types.includes("WebSite"));
 
     const org = nodes.find((n) => n["@type"] === "Organization");
     assert.ok(org.address);
     assert.ok(org.contactPoint);
     assert.ok(org.email || org.contactPoint.email);
+    assert.ok(Array.isArray(org.knowsAbout) && org.knowsAbout.length >= 8);
     assert.match(String(org.name) + JSON.stringify(org.alternateName), /Frontcore/i);
   });
 });
