@@ -7,6 +7,7 @@
 
 import { spawn } from "node:child_process";
 import { createServer } from "node:net";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 import assert from "node:assert/strict";
 import path from "node:path";
@@ -73,6 +74,63 @@ function textContent(html) {
     .replace(/\s+/g, " ")
     .trim();
 }
+
+// --- Static: no third-party web fonts ---
+
+const HTML_PAGES = [
+  "index.html",
+  "404.html",
+  "about/index.html",
+  "contact/index.html",
+  "privacy/index.html",
+];
+
+const BLOCKED_FONT_HOSTS = [/fonts\.googleapis\.com/i, /fonts\.gstatic\.com/i];
+const BLOCKED_FONT_FAMILIES = [/Gabarito/i, /Noto Sans HK/i];
+
+test("HTML pages do not reference Google Fonts", () => {
+  for (const rel of HTML_PAGES) {
+    const content = readFileSync(path.join(ROOT, rel), "utf8");
+    for (const pattern of BLOCKED_FONT_HOSTS) {
+      assert.ok(
+        !pattern.test(content),
+        `${rel} must not reference ${pattern}`
+      );
+    }
+  }
+});
+
+test("font tokens use system stack without blocked web font families", () => {
+  const css = readFileSync(path.join(ROOT, "css/variables.css"), "utf8");
+  for (const pattern of BLOCKED_FONT_FAMILIES) {
+    assert.ok(
+      !pattern.test(css),
+      `css/variables.css must not reference ${pattern}`
+    );
+  }
+  assert.match(css, /PingFang SC/);
+  assert.match(css, /system-ui/);
+});
+
+test("homepage has exactly one H1 and noscript fallback does not duplicate it", () => {
+  const html = readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const h1Matches = [...html.matchAll(/<h1\b/gi)];
+  assert.equal(
+    h1Matches.length,
+    1,
+    `expected exactly one <h1>, found ${h1Matches.length}`
+  );
+
+  const noscriptMatch = html.match(/<noscript>([\s\S]*?)<\/noscript>/i);
+  assert.ok(noscriptMatch, "homepage must include noscript fallback");
+  const noscriptH1 = [...noscriptMatch[1].matchAll(/<h1\b/gi)];
+  assert.equal(
+    noscriptH1.length,
+    0,
+    "noscript fallback must not introduce a second H1"
+  );
+  assert.match(noscriptMatch[1], /<h2\b/i, "noscript fallback should use h2");
+});
 
 // --- Unit: Accept parsing ---
 
@@ -147,6 +205,8 @@ test("homepage HTML has H1, nested headings, and 500+ chars without JS", async (
     assert.match(res.headers.get("vary") || "", /Accept/i);
 
     const html = await res.text();
+    const h1Count = [...html.matchAll(/<h1\b/gi)].length;
+    assert.equal(h1Count, 1, `expected exactly one <h1>, found ${h1Count}`);
     assert.match(html, /<h1[\s\S]*?>[\s\S]*?<\/h1>/i);
     assert.match(html, /<h2[\s\S]*?>/i);
     assert.match(html, /<h3[\s\S]*?>/i);

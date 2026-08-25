@@ -26,7 +26,8 @@ await check("homepage HTML 200 + H1 + text length", async () => {
   const res = await fetch(base + "/");
   if (res.status !== 200) throw new Error(`status ${res.status}`);
   const html = await res.text();
-  if (!/<h1[\s\S]*?>/i.test(html)) throw new Error("missing H1");
+  const h1Count = [...html.matchAll(/<h1\b/gi)].length;
+  if (h1Count !== 1) throw new Error(`expected exactly one H1, found ${h1Count}`);
   const text = html
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")

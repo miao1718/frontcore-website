@@ -21,15 +21,16 @@ html=re.sub(r'(?is)<style[^>]*>.*?</style>','',html)
 text=re.sub(r'<[^>]+>',' ',html)
 text=re.sub(r'\s+',' ',text).strip()
 print(len(text))
-print('H1' if re.search(r'<h1\\b', html, re.I) else 'NOH1')
+h1_count=len(re.findall(r'<h1\\b', html, re.I))
+print(h1_count)
 print(text[:120])
 ")
 CHARS=$(printf '%s' "$TEXT" | sed -n '1p')
-H1=$(printf '%s' "$TEXT" | sed -n '2p')
-if [[ "$H1" == "H1" && "$CHARS" -ge 500 ]]; then
-  pass "Content without JS: ${CHARS} chars + H1"
+H1_COUNT=$(printf '%s' "$TEXT" | sed -n '2p')
+if [[ "$H1_COUNT" == "1" && "$CHARS" -ge 500 ]]; then
+  pass "Content without JS: ${CHARS} chars + exactly one H1"
 else
-  fail "Content without JS: chars=${CHARS} h1=${H1} (need >=500 + H1)"
+  fail "Content without JS: chars=${CHARS} h1_count=${H1_COUNT} (need >=500 + exactly one H1)"
 fi
 
 # 2) JSON-LD present

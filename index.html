@@ -154,10 +154,9 @@
   }
   </script>
   <link rel="apple-touch-icon" href="assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500&family=Noto+Sans+HK:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=20260824f">
+  <link rel="preload" as="image" href="assets/king-banner-slide-01.jpg" media="(min-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/S-king-banner-slide-01.jpg" media="(max-width: 767px)">
+  <link rel="stylesheet" href="css/main.css?v=20260825c">
 </head>
 <body>
   <a href="#main" class="skip-link">跳到主要内容</a>
@@ -191,8 +190,8 @@
     <section class="hero" id="home" aria-label="首页横幅">
       <div class="hero__bg" aria-hidden="true">
         <picture>
-          <source media="(max-width: 767px)" srcset="assets/S-king-banner-slide-01.svg">
-          <img src="assets/king-banner-slide-01.svg" alt="" class="hero__bg-image" fetchpriority="high" decoding="async">
+          <source media="(max-width: 767px)" srcset="assets/S-king-banner-slide-01.jpg" width="1280" height="513">
+          <img src="assets/king-banner-slide-01.jpg" alt="" class="hero__bg-image" width="1920" height="770" fetchpriority="high" decoding="async">
         </picture>
         <div class="hero__overlay"></div>
       </div>
@@ -213,7 +212,7 @@
       <!-- 使命宣言 -->
       <section class="mission" aria-labelledby="mission-title">
         <div class="mission__banner">
-          <img src="assets/mission-banner.jpg" alt="Frontcore 前沿方核 算力基础设施 - 立足粤港澳大湾区服务全球算力需求" class="mission__banner-image">
+          <img src="assets/mission-banner.jpg" alt="Frontcore 前沿方核 算力基础设施 - 立足粤港澳大湾区服务全球算力需求" class="mission__banner-image" width="1400" height="250" loading="lazy" decoding="async">
           <div class="mission__banner-overlay"></div>
           <div class="mission__banner-text">
             <h2 id="mission-title" class="mission__title">
@@ -233,8 +232,8 @@
         <div class="products__grid">
           <article class="product-card">
             <div class="product-card__bg">
-              <img src="assets/product-gpu.jpg" alt="前沿方核 GPU 算力资源 - 支持 AI 训练、推理与整机采购" class="product-card__image">
-              <div class="product-card__overlay product-card__overlay--1"></div>
+              <img src="assets/product-gpu.jpg" alt="前沿方核 GPU 算力资源 - 支持 AI 训练、推理与整机采购" class="product-card__image" width="450" height="450" loading="lazy" decoding="async">
+              <div class="product-card__overlay"></div>
             </div>
             <div class="product-card__content">
               <h3 class="product-card__title">GPU 算力</h3>
@@ -243,7 +242,8 @@
           </article>
           <article class="product-card">
             <div class="product-card__bg">
-              <img src="assets/product-cap-bg-02.svg" alt="前沿方核服务器内存 DDR4 DDR5 ECC RDIMM" class="product-card__image">
+              <img src="assets/product-cap-bg-02.jpg" alt="前沿方核服务器内存 DDR4 DDR5 ECC RDIMM" class="product-card__image" width="450" height="450" loading="lazy" decoding="async">
+              <div class="product-card__overlay"></div>
             </div>
             <div class="product-card__content">
               <h3 class="product-card__title">内存系统</h3>
@@ -252,7 +252,8 @@
           </article>
           <article class="product-card">
             <div class="product-card__bg">
-              <img src="assets/product-cap-bg-03.svg" alt="前沿方核企业级 NVMe SSD 存储解决方案" class="product-card__image">
+              <img src="assets/product-cap-bg-03.jpg" alt="前沿方核企业级 NVMe SSD 存储解决方案" class="product-card__image" width="450" height="450" loading="lazy" decoding="async">
+              <div class="product-card__overlay"></div>
             </div>
             <div class="product-card__content">
               <h3 class="product-card__title">企业级存储</h3>
@@ -272,7 +273,7 @@
           <div class="advantages__grid">
             <article class="advantage-card">
               <div class="advantage-card__bg">
-                <img src="assets/advantage-bg-01.svg" alt="" class="advantage-card__image">
+                <img src="assets/advantage-bg-01.jpg" alt="" class="advantage-card__image" width="429" height="250" loading="lazy" decoding="async">
                 <div class="advantage-card__overlay"></div>
               </div>
               <div class="advantage-card__content">
@@ -282,7 +283,7 @@
             </article>
             <article class="advantage-card">
               <div class="advantage-card__bg">
-                <img src="assets/advantage-bg-02.svg" alt="" class="advantage-card__image">
+                <img src="assets/advantage-bg-02.jpg" alt="" class="advantage-card__image" width="429" height="250" loading="lazy" decoding="async">
                 <div class="advantage-card__overlay"></div>
               </div>
               <div class="advantage-card__content">
@@ -292,7 +293,7 @@
             </article>
             <article class="advantage-card">
               <div class="advantage-card__bg">
-                <img src="assets/advantage-bg-03.svg" alt="" class="advantage-card__image">
+                <img src="assets/advantage-bg-03.jpg" alt="" class="advantage-card__image" width="429" height="250" loading="lazy" decoding="async">
                 <div class="advantage-card__overlay"></div>
               </div>
               <div class="advantage-card__content">
@@ -302,7 +303,7 @@
             </article>
             <article class="advantage-card">
               <div class="advantage-card__bg">
-                <img src="assets/advantage-bg-04.svg" alt="" class="advantage-card__image">
+                <img src="assets/advantage-bg-04.jpg" alt="" class="advantage-card__image" width="429" height="250" loading="lazy" decoding="async">
                 <div class="advantage-card__overlay"></div>
               </div>
               <div class="advantage-card__content">
@@ -313,7 +314,7 @@
           </div>
           <article class="advantage-card advantage-card--featured">
             <div class="advantage-card__bg">
-              <img src="assets/advantage-bg-05.svg" alt="" class="advantage-card__image">
+              <img src="assets/advantage-bg-05.jpg" alt="" class="advantage-card__image" width="429" height="250" loading="lazy" decoding="async">
               <div class="advantage-card__overlay"></div>
             </div>
             <div class="advantage-card__content">

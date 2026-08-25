@@ -53,9 +53,6 @@
   width: 100%;
   height: 100%;
   border-radius: var(--radius-card);
-}
-
-.product-card__overlay--1 {
   background: var(--gradient-product-1);
 }
 

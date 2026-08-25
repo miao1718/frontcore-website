@@ -40,10 +40,14 @@
   );
 
   /* ===== 字体 Typography ===== */
-  --font-heading: "PingFang SC", "PingFang TC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
-  --font-body: "PingFang SC", "PingFang TC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
-  --font-footer: "Noto Sans HK", "PingFang SC", sans-serif;
-  --font-button: "Gabarito", "PingFang SC", sans-serif;
+  /* 系统字体栈：不依赖 Google Fonts（境内不可达、阻塞渲染）。优先粤港澳常用中文系统字体。 */
+  --font-sans-cn: "PingFang SC", "PingFang TC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans SC", "Source Han Sans SC", sans-serif;
+  --font-system: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: var(--font-sans-cn), var(--font-system);
+  --font-body: var(--font-sans-cn), var(--font-system);
+  --font-footer: var(--font-sans-cn), var(--font-system);
+  --font-button: "Helvetica Neue", Arial, var(--font-sans-cn), var(--font-system);
 
   /* ===== 布局 Layout ===== */
   --container-max: 1400px;
